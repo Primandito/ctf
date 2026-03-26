@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Log: Inspect_HTML_picoCTF // Primandito</title>
+    <title>Log: Some_Assembly_Required_1 // Primandito</title>
     <link
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
@@ -147,7 +147,7 @@
       <a href="../" class="back">← cd ..</a>
 
       <div class="header">
-        <h1>MISSION_LOG: Inspect_HTML_picoCTF</h1>
+        <h1>MISSION_LOG: Some_Assembly_Required_1</h1>
         <div class="meta">
           <span>Platform: picoCTF</span>
           <span>Category: Web</span>
@@ -158,10 +158,10 @@
       <!-- ANALISIS -->
       <h2>0x01: Analysis</h2>
       <p>
-        Diberikan sebuah lab bernama <strong>Inspect HTML picoCTF</strong>,
-        berdasarkan hasil observasi awal cara untuk menyelesaikan lab ini adalah
-        dengan cara melihat source code pada website target yang sudah
-        disediakan.
+        Diberikan sebuah lab bernama <strong>Some_Assembly_Required_1</strong>,
+        berdasarkan hasil observasi awal cara untuk menyelesaikan lab ini masih
+        belum banyak info yang diketahui. Tapi kemungkinan ini berhubungan
+        dengan kode <strong>Assembly.</strong>
       </p>
       <div class="img-container">
         <img src="img/01.png" alt="Step 1" />
@@ -171,26 +171,68 @@
       <!-- PENYELESAIAN -->
       <h2>0x02: Exploitation</h2>
       <p>
-        Pada saat saya mengunjungi web target saya langsung melihat source dari
-        web tersebut menggunakan <strong>ctrl+u</strong>
+        Pada saat saya mengunjungi web target saya langsung dihadapkan dengan
+        kolom input yang mungkin ini digunakan untuk menemukan flag. Saya
+        mencoba menggunakan kata kunci flag tapi sayangnya menghasilkan error.
       </p>
       <div class="img-container">
         <img src="img/02.png" alt="Step 2" />
         <div class="caption">Web</div>
       </div>
+
+      <p>
+        Saya mencoba untuk melihat source dari website ini dan saya menemukan
+        sesuatu yang membuat saya menarik yaitu pada file js.
+      </p>
       <div class="img-container">
         <img src="img/03.png" alt="Step 3" />
         <div class="caption">Source code</div>
       </div>
+
       <p>
-        Benar saja pada saat saya melihat source code pada website target saya
-        mendapatkan flagnya
+        Pada saat saya melihat file JS tersebut berisi kode yang tidak rapi maka
+        dari itu saya mencoba untuk menggunakan
+        <a href="https://beautifier.io/" target="_blank">JS Beautifier</a> agar
+        kode terlihat rapi.
       </p>
+
+      <p>
+        Pada saat saya menganalisis kode-kode JS tersebut saya menemukan hal
+        yang aneh pada kode Assembly yaitu
+      </p>
+      <pre><code>./JIFxzHyW8W</code></pre>
+
+      <p>
+        Lalu saya mencoba untuk menambahkan ke dalam path url <strong></strong>
+      </p>
+      <pre><code>http://wily-courier.picoctf.net:port/JIFxzHyW8W</code></pre>
+
+      <p>
+        Pada saat saya mencobanya, saya mendownload sebuah file dan ketika saya
+        membaca file tersebut dengan perintah <strong>cat</strong> saya menemukan
+        flag-nya.
+      </p>
+      <div class="img-container">
+        <img src="img/04.png" alt="Step 4" />
+        <div class="caption">File JS</div>
+      </div>
+      <div class="img-container">
+        <img src="img/05.png" alt="Step 5" />
+        <div class="caption">Kode JS</div>
+      </div>
+      <div class="img-container">
+        <img src="img/06.png" alt="Step 6" />
+        <div class="caption">Unduh file</div>
+      </div>
+      <div class="img-container">
+        <img src="img/07.png" alt="Step 7" />
+        <div class="caption">Flag</div>
+      </div>
 
       <!-- FLAG -->
       <div class="flag-box">
         <span class="flag-label">CAPTURE THE FLAG:</span>
-        <span class="flag-text">picoCTF{1n5p3t0r_0f_h7ml_fd5d57bd}</span>
+        <span class="flag-text">picoCTF{68ff4bc93f6d67637b2f471be209d132}</span>
       </div>
     </div>
   </body>
