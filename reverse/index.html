@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status: Pending // Primandito</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #0a0a0a; --accent: #ff5555; --text: #333; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'IBM Plex Mono', monospace; 
+            background: var(--bg); 
+            color: var(--text); 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 500px; width: 100%; }
+        
+        .status-box {
+            border: 1px solid #151515;
+            padding: 30px;
+            text-align: left;
+        }
+
+        .pulse {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        h1 { color: #eee; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; }
+        p { font-size: 0.8rem; line-height: 1.6; color: #666; margin-bottom: 20px; }
+        
+        .loading-bar {
+            width: 100%;
+            height: 1px;
+            background: #151515;
+            overflow: hidden;
+        }
+        .loading-progress {
+            width: 30%;
+            height: 100%;
+            background: #333;
+            animation: loading 2.5s infinite linear;
+        }
+
+        @keyframes loading {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(400%); }
+        }
+
+        .back-link {
+            color: #444;
+            text-decoration: none;
+            font-size: 0.75rem;
+            margin-top: 25px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .back-link:hover { color: var(--accent); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="status-box">
+            <h1><span class="pulse"></span> [ SECTION_VACANT ]</h1>
+            <p>
+                No validated records found in this partition. 
+                Write-ups for this category are currently pending system upload.
+            </p>
+            
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            
+            <p style="font-size: 0.7rem; margin-top: 10px; margin-bottom: 0;">
+                STATUS: AWAITING_INPUT_LOGS...
+            </p>
+        </div>
+        
+        <a href="../" class="back-link">← Return to index</a>
+    </div>
+</body>
+</html>

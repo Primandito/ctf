@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log: Irish_Name_Repo_1 // Primandito</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0a0a0a;
+        --accent: #ff5555;
+        --text: #aaa;
+        --border: #1a1a1a;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "IBM Plex Mono", monospace;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        padding: 20px;
+      }
+      .container {
+        max-width: 850px;
+        margin: 0 auto;
+      }
+
+      /* Navigation */
+      .back {
+        color: #555;
+        text-decoration: none;
+        font-size: 0.8rem;
+        margin-bottom: 20px;
+        display: inline-block;
+      }
+      .back:hover {
+        color: var(--accent);
+      }
+
+      /* Header */
+      .header {
+        border-bottom: 2px solid var(--accent);
+        padding-bottom: 20px;
+        margin-bottom: 40px;
+      }
+      h1 {
+        color: #fff;
+        font-size: 1.3rem;
+        text-transform: uppercase;
+      }
+      .meta {
+        font-size: 0.75rem;
+        color: #444;
+        margin-top: 10px;
+        display: flex;
+        gap: 20px;
+        text-transform: uppercase;
+      }
+
+      /* Typography */
+      h2 {
+        color: #fff;
+        font-size: 0.9rem;
+        margin: 40px 0 20px;
+        border-left: 3px solid var(--accent);
+        padding-left: 15px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      p {
+        margin-bottom: 15px;
+        font-size: 0.9rem;
+      }
+      strong {
+        color: #fff;
+      }
+
+      /* Code Block */
+      pre {
+        background: #0d0d0d;
+        padding: 15px;
+        border: 1px solid var(--border);
+        overflow-x: auto;
+        font-size: 0.8rem;
+        color: #4ade80;
+        margin-bottom: 20px;
+      }
+
+      /* Image Styling (SELALU PAS) */
+      .img-container {
+        margin: 25px 0;
+        background: #000;
+        border: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+      }
+      .img-container img {
+        max-width: 100%; /* Biar gak luber */
+        height: auto;
+        display: block;
+        opacity: 0.8;
+      }
+      .caption {
+        width: 100%;
+        font-size: 0.65rem;
+        color: #444;
+        text-align: center;
+        padding: 8px;
+        background: #050505;
+        border-top: 1px solid var(--border);
+      }
+
+      /* Flag Box */
+      .flag-box {
+        background: rgba(255, 85, 85, 0.05);
+        border: 1px dashed var(--accent);
+        padding: 20px;
+        margin-top: 40px;
+        text-align: center;
+      }
+      .flag-label {
+        font-size: 0.7rem;
+        color: var(--accent);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 10px;
+      }
+      .flag-text {
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 500;
+        word-break: break-all;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a href="../" class="back">← cd ..</a>
+
+      <div class="header">
+        <h1>MISSION_LOG: Irish_Name_Repo_1</h1>
+        <div class="meta">
+          <span>Platform: picoCTF</span>
+          <span>Category: Web</span>
+          <span>Points: -</span>
+        </div>
+      </div>
+
+      <!-- ANALISIS -->
+      <h2>0x01: Analysis</h2>
+      <p>
+        Diberikan sebuah lab bernama <strong>Irish_Name_Repo_1</strong>,
+        berdasarkan hasil observasi awal cara untuk menyelesaikan lab ini adalah
+        dengan cara berhasil login dan masuk ke dalam dashboard untuk
+        mendapatkan flagnya.
+      </p>
+      <p>
+        Tapi kemungkinan tidak semudah itu karena soal ini berada pada level
+        medium.
+      </p>
+      <div class="img-container">
+        <img src="img/01.png" alt="Step 1" />
+        <div class="caption">Lab</div>
+      </div>
+
+      <!-- PENYELESAIAN -->
+      <h2>0x02: Exploitation</h2>
+      <p>
+        Pada saat saya mengunjungi web target saya mencoba untuk menganalisis
+        halaman utama
+      </p>
+      <div class="img-container">
+        <img src="img/02.png" alt="Step 2" />
+        <div class="caption">Web</div>
+      </div>
+      <div class="img-container">
+        <img src="img/03.png" alt="Step 3" />
+        <div class="caption"></div>
+      </div>
+
+      <p>
+        Ternyata tidak terdapat petunjuk apapun, jadi yang menarik perhatian saya ada pada
+        menu di pojok kiri atas.
+      </p>
+      <div class="img-container">
+        <img src="img/04.png" alt="Step 4" />
+        <div class="caption">Menu Bar</div>
+      </div>
+
+      <p>
+        Pada saat saya klik menu tersebut terlihat daftar menu dan satu menu
+        yang membuat saya lebih tertarik yaitu <strong>Admin Login.</strong>
+      </p>
+      <div class="img-container">
+        <img src="img/05.png" alt="Step 5" />
+        <div class="caption">Daftar menu</div>
+      </div>
+
+      <p>
+        Lalu saya mengunjungi halaman admin login tersebut, saya memasukkan
+        kredential: <br />
+        username: <strong>admin</strong> <br />
+        password: <strong>admin</strong>
+      </p>
+
+      <p>
+        Pada saat saya login menggunakan kredensial tersebut ternyata
+        menghasilkan output <strong>Login Failed.</strong> Tetapi saya
+        mendapatkan sebuah petunjuk yang menarik yaitu saya dapat mengetahui
+        bahwa website target menggunakan bahasa pemrograman
+        <strong>PHP.</strong>
+      </p>
+      <div class="img-container">
+        <img src="img/06.png" alt="Step 6" />
+        <div class="caption">Login</div>
+      </div>
+      <div class="img-container">
+        <img src="img/07.png" alt="Step 7" />
+        <div class="caption">Error</div>
+      </div>
+
+      <p>
+        Setelah mengetahui bahwa target menggunakan PHP saya langsung mencoba
+        payload <strong>SQLi</strong> untuk me-bypass login menggunakan payload.
+      </p>
+
+      <pre><code>" OR 1=1--</code></pre>
+
+      <p>
+        Saya menggunakan payload tersebut pada kolom username, benar saja saat
+        saya login saya mendapatkan flag-nya.
+      </p>
+
+      <div class="img-container">
+        <img src="img/08.png" alt="Step 8" />
+        <div class="caption">Payload</div>
+      </div>
+      <div class="img-container">
+        <img src="img/09.png" alt="Step 9" />
+        <div class="caption">Flag</div>
+      </div>
+
+      <!-- FLAG -->
+      <div class="flag-box">
+        <span class="flag-label">CAPTURE THE FLAG:</span>
+        <span class="flag-text">picoCTF{s0m3_SQL_85832275}</span>
+      </div>
+    </div>
+  </body>
+</html>
