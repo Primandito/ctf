@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Log: Java_Code_Analysis!?! // Primandito</title>
+    <title>Log: Java_Code_Analysis // Primandito</title>
     <link
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
@@ -12,7 +12,7 @@
       :root {
         --bg: #0a0a0a;
         --accent: #ff5555;
-        --text: #aaa;
+        --text: #888;
         --border: #1a1a1a;
       }
       * {
@@ -31,29 +31,27 @@
         max-width: 850px;
         margin: 0 auto;
       }
-
-      /* Navigation */
       .back {
-        color: #555;
+        color: #444;
         text-decoration: none;
         font-size: 0.8rem;
         margin-bottom: 20px;
         display: inline-block;
+        transition: 0.3s;
       }
       .back:hover {
         color: var(--accent);
       }
-
-      /* Header */
       .header {
-        border-bottom: 2px solid var(--accent);
+        border-bottom: 1px solid var(--border);
         padding-bottom: 20px;
         margin-bottom: 40px;
       }
       h1 {
         color: #fff;
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         text-transform: uppercase;
+        letter-spacing: 1px;
       }
       .meta {
         font-size: 0.75rem;
@@ -63,8 +61,6 @@
         gap: 20px;
         text-transform: uppercase;
       }
-
-      /* Typography */
       h2 {
         color: #fff;
         font-size: 0.9rem;
@@ -79,23 +75,11 @@
         font-size: 0.9rem;
       }
       strong {
-        color: #fff;
+        color: #eee;
+        font-weight: 500;
       }
-
-      /* Code Block */
-      pre {
-        background: #0d0d0d;
-        padding: 15px;
-        border: 1px solid var(--border);
-        overflow-x: auto;
-        font-size: 0.8rem;
-        color: #4ade80;
-        margin-bottom: 20px;
-      }
-
-      /* Image Styling (SELALU PAS) */
       .img-container {
-        margin: 25px 0;
+        margin: 30px 0;
         background: #000;
         border: 1px solid var(--border);
         display: flex;
@@ -104,7 +88,7 @@
         overflow: hidden;
       }
       .img-container img {
-        max-width: 100%; /* Biar gak luber */
+        max-width: 100%;
         height: auto;
         display: block;
         opacity: 0.8;
@@ -112,19 +96,18 @@
       .caption {
         width: 100%;
         font-size: 0.65rem;
-        color: #444;
+        color: #333;
         text-align: center;
         padding: 8px;
         background: #050505;
         border-top: 1px solid var(--border);
+        text-transform: uppercase;
       }
-
-      /* Flag Box */
       .flag-box {
-        background: rgba(255, 85, 85, 0.05);
-        border: 1px dashed var(--accent);
-        padding: 20px;
-        margin-top: 40px;
+        background: rgba(255, 85, 85, 0.02);
+        border: 1px dashed #333;
+        padding: 25px;
+        margin: 50px 0 20px;
         text-align: center;
       }
       .flag-label {
@@ -133,6 +116,7 @@
         font-weight: bold;
         display: block;
         margin-bottom: 10px;
+        letter-spacing: 2px;
       }
       .flag-text {
         color: #fff;
@@ -140,22 +124,23 @@
         font-weight: 500;
         word-break: break-all;
       }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <a href="../" class="back">← cd ..</a>
-
       <div class="header">
         <h1>MISSION_LOG: Java_Code_Analysis!?!</h1>
         <div class="meta">
-          <span>Platform: picoCTF</span>
-          <span>Category: Web</span>
-          <span>Points: -</span>
+          <span>Platform: picoCTF</span><span>Category: Web</span
+          ><span>Status: Pwned</span>
         </div>
       </div>
 
-      <!-- ANALISIS -->
       <h2>0x01: Analysis</h2>
       <p>
         Diberikan sebuah lab bernama <strong>Java_Code_Analysis!?!</strong>,
@@ -164,35 +149,32 @@
         diberikan sebuah kredential untuk login dan source code web target.
       </p>
       <div class="img-container">
-        <img src="img/01.png" alt="Step 1" />
-        <div class="caption">Lab</div>
+        <img src="img/01.png" />
+        <div class="caption">Initial Lab State</div>
       </div>
 
-      <!-- PENYELESAIAN -->
       <h2>0x02: Exploitation</h2>
       <p>
         Pada saat saya mengunjungi web target saya melihat fitur login dan saya
-        menggunakan kredensial yang sudah di berikan yaitu: <br />
-        username: <strong>user</strong> <br />
-        password: <strong>user</strong>
+        menggunakan kredensial yang sudah di berikan yaitu: <br />username:
+        <strong>user</strong> <br />password: <strong>user</strong>
       </p>
-
       <p>
         Setelah saya memasukkan kredensial di atas dan login saya diarahkah ke
         menu dashboard dan saya melihat ada buku bernama flag tapi sayangnya
         membutuhkan hak akses Admin sedangkan saya masih di level Free.
       </p>
       <div class="img-container">
-        <img src="img/02.png" alt="Step 2" />
-        <div class="caption">Web</div>
+        <img src="img/02.png" />
+        <div class="caption">Web Interface</div>
       </div>
       <div class="img-container">
-        <img src="img/03.png" alt="Step 3" />
-        <div class="caption">Dashboard Free</div>
+        <img src="img/03.png" />
+        <div class="caption">Dashboard Restricted</div>
       </div>
 
       <p>
-        saya mencoba untuk menganalisis kode Java yang sudah di berikan dan pada
+        Saya mencoba untuk menganalisis kode Java yang sudah di berikan dan pada
         saat saya membaca file <strong>UserService.java,</strong> saya menemukan
         kata kunci <strong>JWT</strong> yang kemungkinan ini berhubungan dengan
         token JWT.
@@ -202,108 +184,62 @@
         menemukan sebuah token JWT.
       </p>
       <div class="img-container">
-        <img src="img/04.png" alt="Step 4" />
-        <div class="caption">Kode Java</div>
+        <img src="img/04.png" />
+        <div class="caption">UserService Code Analysis</div>
       </div>
       <div class="img-container">
-        <img src="img/05.png" alt="Step 5" />
-        <div class="caption">Token JWT</div>
+        <img src="img/05.png" />
+        <div class="caption">JWT Token Discovery</div>
       </div>
 
       <p>
         Saya langsung menyalin token JWT yang saya temukan dan saya menggunakan
-        <a href="https://www.jwt.io/">jwt.io.</a> Pada saat saya mendecode token
-        JWT saya menemukan sebuah parameter <strong>role</strong> ada
-        kemungkinan saya harus mengubah parameter ini. Hal lain yang saya
-        temukan yaitu <strong>Secret</strong> yang kemungkinan ada pada kode
-        Java.
+        <a href="https://www.jwt.io/" target="_blank">jwt.io.</a> Pada saat saya
+        mendecode token JWT saya menemukan sebuah parameter
+        <strong>role</strong> ada kemungkinan saya harus mengubah parameter ini.
       </p>
       <p>
         Pada saat saya menganalisis kembali kode Java saya menemukan sebuah
         secret pada file <strong>SecretGenerator.java.</strong>
       </p>
       <div class="img-container">
-        <img src="img/06.png" alt="Step 6" />
-        <div class="caption">Jwt io</div>
+        <img src="img/06.png" />
+        <div class="caption">JWT Decoding</div>
       </div>
       <div class="img-container">
-        <img src="img/07.png" alt="Step 7" />
-        <div class="caption">Kode Java</div>
+        <img src="img/07.png" />
+        <div class="caption">Secret Key Leak</div>
       </div>
 
       <p>
-        Pada saat saya menganalisis file lain saya menemukan hal menarik pada
-        file <strong>data.sql</strong> yang berisi roles values.
-      </p>
-      <p>
-        Setelah saya mendapatkan secret dan roles saya menjadi tahu, saya
-        mengubah parameter role, userId, email dan secret menjadi Admin karena
-        dibutuhkan role Admin untuk membaca buku bernama flag.
-      </p>
-      <p>
-        Setelah itu saya menyalin token JWT baru dan saya ganti token JWT lama
-        lalu saya refresh web target dan saya coba akses buku bernama flag.
+        Saya menemukan hal menarik pada file <strong>data.sql</strong> yang
+        berisi roles values. Saya mengubah parameter role, userId, email dan
+        secret menjadi Admin untuk membaca buku bernama flag.
       </p>
       <div class="img-container">
-        <img src="img/08.png" alt="Step 8" />
-        <div class="caption">Kode Java</div>
+        <img src="img/08.png" />
+        <div class="caption">Role Values Analysis</div>
       </div>
       <div class="img-container">
-        <img src="img/09.png" alt="Step 9" />
-        <div class="caption">Jwt.io</div>
-      </div>
-      <div class="img-container">
-        <img src="img/10.png" alt="Step 10" />
-        <div class="caption">Token JWT baru</div>
-      </div>
-      <div class="img-container">
-        <img src="img/11.png" alt="Step 11" />
-        <div class="caption">Buku Flag</div>
+        <img src="img/09.png" />
+        <div class="caption">Forging New Token</div>
       </div>
 
       <p>
         Tapi sayangnya pada saat saya mengakses buku Flag terjadi error. Saya
-        kembali menganalisis token JWT.
-      </p>
-      <p>
-        Lalu saya mencoba mengubah userId menjadi 1 dan saya lakukan hal yang
-        sama yaitu mengganti token JWT lama dengan yang baru. Tapi sayangnya
-        terjadi error kembali pada saat saya mengakses buku Flag.
+        mencoba mengubah userId menjadi 1, masih error. Akhirnya saya mencoba
+        mengubah userId menjadi 2 dan ternyata berhasil saya mendapatkan
+        flag-nya.
       </p>
       <div class="img-container">
-        <img src="img/12.png" alt="Step 12" />
-        <div class="caption">Buku Flag Error</div>
+        <img src="img/12.png" />
+        <div class="caption">First Error Response</div>
       </div>
       <div class="img-container">
-        <img src="img/13.png" alt="Step 13" />
-        <div class="caption">Jwt.io</div>
-      </div>
-      <div class="img-container">
-        <img src="img/14.png" alt="Step 14" />
-        <div class="caption">Token JWT baru</div>
-      </div>
-      <div class="img-container">
-        <img src="img/15.png" alt="Step 15" />
-        <div class="caption">Buku Flag Error</div>
+        <img src="img/18.png" />
+        <div class="caption">Flag captured successfully</div>
       </div>
 
-      <p>
-        Lalu saya mencoba mengubah userId menjadi 2 dan ternyata berhasil saya mendapatkan flag-nya.
-      </p>
-      <div class="img-container">
-        <img src="img/16.png" alt="Step 16" />
-        <div class="caption">Jwt.io</div>
-      </div>
-      <div class="img-container">
-        <img src="img/17.png" alt="Step 17" />
-        <div class="caption">Token JWT baru</div>
-      </div>
-      <div class="img-container">
-        <img src="img/18.png" alt="Step 18" />
-        <div class="caption">Flag</div>
-      </div>
-
-      <!-- FLAG -->
       <div class="flag-box">
         <span class="flag-label">CAPTURE THE FLAG:</span>
         <span class="flag-text">picoCTF{w34k_jwt_n0t_g00d_7745dc02}</span>

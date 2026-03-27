@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Lab // Primandito</title>
+    <title>CTF Archive // Primandito</title>
     <link
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
@@ -12,7 +12,7 @@
       :root {
         --bg: #0a0a0a;
         --accent: #ff5555;
-        --text: #aaa;
+        --text: #888;
       }
       * {
         margin: 0;
@@ -23,72 +23,60 @@
         font-family: "IBM Plex Mono", monospace;
         background: var(--bg);
         color: var(--text);
-        padding: 40px 20px;
+        padding: 60px 20px;
         line-height: 1.6;
       }
       .container {
-        max-width: 700px;
+        max-width: 650px;
         margin: 0 auto;
       }
+
       header {
-        border-bottom: 1px dashed #333;
-        padding-bottom: 20px;
         margin-bottom: 40px;
       }
       h1 {
         color: #fff;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         font-weight: 500;
+        margin-bottom: 10px;
       }
-      .status {
-        color: var(--accent);
-        font-size: 0.8rem;
-        margin-top: 5px;
-      }
-      .desc {
-        font-size: 0.9rem;
-        margin-top: 15px;
-        color: #666;
+      p {
+        font-size: 0.85rem;
+        color: #555;
       }
 
-      .dir-list {
+      .list {
         list-style: none;
-        margin-top: 30px;
+        margin-top: 40px;
       }
-      .dir-item {
-        margin-bottom: 10px;
-        display: flex;
-        align-items: center;
+      .list-item {
+        margin-bottom: 15px;
       }
-      .dir-item::before {
-        content: "drwxr-xr-x";
-        color: #444;
-        font-size: 0.75rem;
-        margin-right: 15px;
-      }
-      .dir-link {
-        color: #fff;
+      .list-link {
+        color: #ccc;
         text-decoration: none;
-        border-bottom: 1px solid transparent;
-        transition: 0.3s;
+        font-size: 0.9rem;
+        transition: 0.2s;
       }
-      .dir-link:hover {
+      .list-link:hover {
         color: var(--accent);
-        border-bottom-color: var(--accent);
+      }
+      .list-link::before {
+        content: "> ";
+        color: #333;
       }
 
       footer {
-        margin-top: 60px;
-        font-size: 0.7rem;
-        color: #444;
+        margin-top: 100px;
         border-top: 1px solid #1a1a1a;
         padding-top: 20px;
       }
-      .back-main {
-        color: #555;
+      .back {
+        color: #444;
         text-decoration: none;
+        font-size: 0.8rem;
       }
-      .back-main:hover {
+      .back:hover {
         color: #fff;
       }
     </style>
@@ -96,35 +84,35 @@
   <body>
     <div class="container">
       <header>
-        <h1>PRIMANDITO@RESEARCH_LAB:~/CTF$ ls -l</h1>
-        <div class="status">[!] MISSION LOGS // RAW SCRATCHPAD</div>
-        <p class="desc">
-          Koleksi write-up random. Kadang rapi, seringnya cuma coretan pas lagi
-          muter otak. Logic-heavy, less formal.
+        <h1>CTF Write-ups</h1>
+        <p>
+          Collection of technical solutions and mission logs across various
+          categories.
         </p>
       </header>
 
-      <ul class="dir-list">
-        <li class="dir-item">
-          <a href="web/" class="dir-link">web_exploitation/</a>
-        </li>
-        <li class="dir-item">
-          <a href="binary/" class="dir-link">binary_exploitation/</a>
-        </li>
-        <li class="dir-item">
-          <a href="reverse/" class="dir-link">reverse_engineering/</a>
-        </li>
-        <li class="dir-item">
-          <a href="forensic/" class="dir-link">forensics/</a>
-        </li>
-        <li class="dir-item">
-          <a href="misc/" class="dir-link">miscellaneous/</a>
-        </li>
-      </ul>
+      <nav>
+        <ul class="list">
+          <li class="list-item">
+            <a href="web/" class="list-link">Web Exploitation</a>
+          </li>
+          <li class="list-item">
+            <a href="binary/" class="list-link">Binary Exploitation</a>
+          </li>
+          <li class="list-item">
+            <a href="reverse/" class="list-link">Reverse Engineering</a>
+          </li>
+          <li class="list-item">
+            <a href="forensic/" class="list-link">Forensics</a>
+          </li>
+          <li class="list-item">
+            <a href="misc/" class="list-link">Miscellaneous</a>
+          </li>
+        </ul>
+      </nav>
 
       <footer>
-        <a href="../" class="back-main">← Return to Headquarters</a>
-        <p style="margin-top: 10px">© 2026 - Encrypted Persistence</p>
+        <a href="../portfolio.html" class="back">← Back to Portfolio</a>
       </footer>
     </div>
   </body>

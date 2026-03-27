@@ -12,7 +12,7 @@
       :root {
         --bg: #0a0a0a;
         --accent: #ff5555;
-        --text: #aaa;
+        --text: #888;
         --border: #1a1a1a;
       }
       * {
@@ -31,29 +31,27 @@
         max-width: 850px;
         margin: 0 auto;
       }
-
-      /* Navigation */
       .back {
-        color: #555;
+        color: #444;
         text-decoration: none;
         font-size: 0.8rem;
         margin-bottom: 20px;
         display: inline-block;
+        transition: 0.3s;
       }
       .back:hover {
         color: var(--accent);
       }
-
-      /* Header */
       .header {
-        border-bottom: 2px solid var(--accent);
+        border-bottom: 1px solid var(--border);
         padding-bottom: 20px;
         margin-bottom: 40px;
       }
       h1 {
         color: #fff;
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         text-transform: uppercase;
+        letter-spacing: 1px;
       }
       .meta {
         font-size: 0.75rem;
@@ -63,8 +61,6 @@
         gap: 20px;
         text-transform: uppercase;
       }
-
-      /* Typography */
       h2 {
         color: #fff;
         font-size: 0.9rem;
@@ -79,10 +75,9 @@
         font-size: 0.9rem;
       }
       strong {
-        color: #fff;
+        color: #eee;
+        font-weight: 500;
       }
-
-      /* Code Block */
       pre {
         background: #0d0d0d;
         padding: 15px;
@@ -92,10 +87,8 @@
         color: #4ade80;
         margin-bottom: 20px;
       }
-
-      /* Image Styling (SELALU PAS) */
       .img-container {
-        margin: 25px 0;
+        margin: 30px 0;
         background: #000;
         border: 1px solid var(--border);
         display: flex;
@@ -104,7 +97,7 @@
         overflow: hidden;
       }
       .img-container img {
-        max-width: 100%; /* Biar gak luber */
+        max-width: 100%;
         height: auto;
         display: block;
         opacity: 0.8;
@@ -112,19 +105,18 @@
       .caption {
         width: 100%;
         font-size: 0.65rem;
-        color: #444;
+        color: #333;
         text-align: center;
         padding: 8px;
         background: #050505;
         border-top: 1px solid var(--border);
+        text-transform: uppercase;
       }
-
-      /* Flag Box */
       .flag-box {
-        background: rgba(255, 85, 85, 0.05);
-        border: 1px dashed var(--accent);
-        padding: 20px;
-        margin-top: 40px;
+        background: rgba(255, 85, 85, 0.02);
+        border: 1px dashed #333;
+        padding: 25px;
+        margin: 50px 0 20px;
         text-align: center;
       }
       .flag-label {
@@ -133,6 +125,7 @@
         font-weight: bold;
         display: block;
         margin-bottom: 10px;
+        letter-spacing: 2px;
       }
       .flag-text {
         color: #fff;
@@ -140,22 +133,23 @@
         font-weight: 500;
         word-break: break-all;
       }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <a href="../" class="back">← cd ..</a>
-
       <div class="header">
         <h1>MISSION_LOG: Some_Assembly_Required_1</h1>
         <div class="meta">
-          <span>Platform: picoCTF</span>
-          <span>Category: Web</span>
-          <span>Points: -</span>
+          <span>Platform: picoCTF</span><span>Category: Web</span
+          ><span>Status: Pwned</span>
         </div>
       </div>
 
-      <!-- ANALISIS -->
       <h2>0x01: Analysis</h2>
       <p>
         Diberikan sebuah lab bernama <strong>Some_Assembly_Required_1</strong>,
@@ -164,11 +158,10 @@
         dengan kode <strong>Assembly.</strong>
       </p>
       <div class="img-container">
-        <img src="img/01.png" alt="Step 1" />
-        <div class="caption">Lab</div>
+        <img src="img/01.png" />
+        <div class="caption">Target Investigation</div>
       </div>
 
-      <!-- PENYELESAIAN -->
       <h2>0x02: Exploitation</h2>
       <p>
         Pada saat saya mengunjungi web target saya langsung dihadapkan dengan
@@ -176,60 +169,42 @@
         mencoba menggunakan kata kunci flag tapi sayangnya menghasilkan error.
       </p>
       <div class="img-container">
-        <img src="img/02.png" alt="Step 2" />
-        <div class="caption">Web</div>
+        <img src="img/02.png" />
+        <div class="caption">Input Interface</div>
       </div>
 
       <p>
         Saya mencoba untuk melihat source dari website ini dan saya menemukan
-        sesuatu yang membuat saya menarik yaitu pada file js.
-      </p>
-      <div class="img-container">
-        <img src="img/03.png" alt="Step 3" />
-        <div class="caption">Source code</div>
-      </div>
-
-      <p>
-        Pada saat saya melihat file JS tersebut berisi kode yang tidak rapi maka
-        dari itu saya mencoba untuk menggunakan
+        sesuatu yang membuat saya menarik yaitu pada file JS. File JS tersebut
+        berisi kode yang tidak rapi maka dari itu saya menggunakan
         <a href="https://beautifier.io/" target="_blank">JS Beautifier</a> agar
         kode terlihat rapi.
       </p>
+      <div class="img-container">
+        <img src="img/03.png" />
+        <div class="caption">Source Code Audit</div>
+      </div>
 
       <p>
         Pada saat saya menganalisis kode-kode JS tersebut saya menemukan hal
-        yang aneh pada kode Assembly yaitu
+        yang aneh pada kode Assembly yaitu:
       </p>
       <pre><code>./JIFxzHyW8W</code></pre>
 
       <p>
-        Lalu saya mencoba untuk menambahkan ke dalam path url <strong></strong>
-      </p>
-      <pre><code>http://wily-courier.picoctf.net:port/JIFxzHyW8W</code></pre>
-
-      <p>
-        Pada saat saya mencobanya, saya mendownload sebuah file dan ketika saya
-        membaca file tersebut dengan perintah <strong>cat</strong> saya menemukan
-        flag-nya.
+        Lalu saya mencoba untuk menambahkan ke dalam path url. Pada saat saya
+        mencobanya, saya mendownload sebuah file dan ketika saya membaca file
+        tersebut dengan perintah <strong>cat</strong> saya menemukan flag-nya.
       </p>
       <div class="img-container">
-        <img src="img/04.png" alt="Step 4" />
-        <div class="caption">File JS</div>
+        <img src="img/06.png" />
+        <div class="caption">File Retrieval</div>
       </div>
       <div class="img-container">
-        <img src="img/05.png" alt="Step 5" />
-        <div class="caption">Kode JS</div>
-      </div>
-      <div class="img-container">
-        <img src="img/06.png" alt="Step 6" />
-        <div class="caption">Unduh file</div>
-      </div>
-      <div class="img-container">
-        <img src="img/07.png" alt="Step 7" />
-        <div class="caption">Flag</div>
+        <img src="img/07.png" />
+        <div class="caption">Flag Extraction via Cat</div>
       </div>
 
-      <!-- FLAG -->
       <div class="flag-box">
         <span class="flag-label">CAPTURE THE FLAG:</span>
         <span class="flag-text">picoCTF{68ff4bc93f6d67637b2f471be209d132}</span>

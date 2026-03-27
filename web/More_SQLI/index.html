@@ -12,7 +12,7 @@
       :root {
         --bg: #0a0a0a;
         --accent: #ff5555;
-        --text: #aaa;
+        --text: #888;
         --border: #1a1a1a;
       }
       * {
@@ -31,29 +31,27 @@
         max-width: 850px;
         margin: 0 auto;
       }
-
-      /* Navigation */
       .back {
-        color: #555;
+        color: #444;
         text-decoration: none;
         font-size: 0.8rem;
         margin-bottom: 20px;
         display: inline-block;
+        transition: 0.3s;
       }
       .back:hover {
         color: var(--accent);
       }
-
-      /* Header */
       .header {
-        border-bottom: 2px solid var(--accent);
+        border-bottom: 1px solid var(--border);
         padding-bottom: 20px;
         margin-bottom: 40px;
       }
       h1 {
         color: #fff;
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         text-transform: uppercase;
+        letter-spacing: 1px;
       }
       .meta {
         font-size: 0.75rem;
@@ -63,8 +61,6 @@
         gap: 20px;
         text-transform: uppercase;
       }
-
-      /* Typography */
       h2 {
         color: #fff;
         font-size: 0.9rem;
@@ -79,10 +75,9 @@
         font-size: 0.9rem;
       }
       strong {
-        color: #fff;
+        color: #eee;
+        font-weight: 500;
       }
-
-      /* Code Block */
       pre {
         background: #0d0d0d;
         padding: 15px;
@@ -92,10 +87,8 @@
         color: #4ade80;
         margin-bottom: 20px;
       }
-
-      /* Image Styling (SELALU PAS) */
       .img-container {
-        margin: 25px 0;
+        margin: 30px 0;
         background: #000;
         border: 1px solid var(--border);
         display: flex;
@@ -104,7 +97,7 @@
         overflow: hidden;
       }
       .img-container img {
-        max-width: 100%; /* Biar gak luber */
+        max-width: 100%;
         height: auto;
         display: block;
         opacity: 0.8;
@@ -112,19 +105,18 @@
       .caption {
         width: 100%;
         font-size: 0.65rem;
-        color: #444;
+        color: #333;
         text-align: center;
         padding: 8px;
         background: #050505;
         border-top: 1px solid var(--border);
+        text-transform: uppercase;
       }
-
-      /* Flag Box */
       .flag-box {
-        background: rgba(255, 85, 85, 0.05);
-        border: 1px dashed var(--accent);
-        padding: 20px;
-        margin-top: 40px;
+        background: rgba(255, 85, 85, 0.02);
+        border: 1px dashed #333;
+        padding: 25px;
+        margin: 50px 0 20px;
         text-align: center;
       }
       .flag-label {
@@ -133,6 +125,7 @@
         font-weight: bold;
         display: block;
         margin-bottom: 10px;
+        letter-spacing: 2px;
       }
       .flag-text {
         color: #fff;
@@ -145,88 +138,66 @@
   <body>
     <div class="container">
       <a href="../" class="back">← cd ..</a>
-
       <div class="header">
         <h1>MISSION_LOG: More_SQLI</h1>
         <div class="meta">
-          <span>Platform: picoCTF</span>
-          <span>Category: Web</span>
-          <span>Points: -</span>
+          <span>Platform: picoCTF</span><span>Category: Web</span
+          ><span>Status: Pwned</span>
         </div>
       </div>
 
-      <!-- ANALISIS -->
       <h2>0x01: Analysis</h2>
       <p>
-        Diberikan sebuah lab bernama <strong>More_SQLI</strong>,
-        berdasarkan hasil observasi awal cara untuk menyelesaikan lab ini belum terlihat jelas karena pada deskripsi soal hanya memberikan petunjuk untuk menemukan flag pada sebuah website, tapi yang jelas kita akan menggunakan payload <strong>SQLi</strong> untuk menyelesaikan tantangan ini.
+        Diberikan sebuah lab bernama <strong>More_SQLI</strong>. Berdasarkan
+        hasil observasi awal cara untuk menyelesaikan lab ini belum terlihat
+        jelas karena pada deskripsi soal hanya memberikan petunjuk untuk
+        menemukan flag pada sebuah website, tapi yang jelas kita akan
+        menggunakan payload <strong>SQLi</strong> untuk menyelesaikan tantangan
+        ini.
       </p>
       <div class="img-container">
-        <img src="img/01.png" alt="Step 1" />
-        <div class="caption">Lab</div>
+        <img src="img/01.png" />
+        <div class="caption">Mission Briefing</div>
       </div>
 
-      <!-- PENYELESAIAN -->
       <h2>0x02: Exploitation</h2>
       <p>
-        Pada saat saya mengunjungi web target saya langsung melihat halaman login, lalu saya mencoba memasukkan kredential: <br>
-        username: <strong>admin</strong> <br>
-        password: <strong>admin</strong>
+        Pada saat saya mengunjungi web target saya langsung melihat halaman
+        login, lalu saya mencoba memasukkan kredential: admin / admin.
       </p>
-
       <p>
-        Pada saat saya login menggunakan kredential diatas memunculkan output error berupa sebuah sytax bahasa pemrograman <strong>SQL.</strong>
-      </p>
-
-      <p>
-        Error tersebut memberikan saya petunjuk yang intinya saya harus me-bypass fitur login tepatnya pada kolom <strong>password.</strong>
+        Pada saat saya login memunculkan output error berupa sebuah syntax
+        bahasa pemrograman <strong>SQL.</strong> Error tersebut memberikan saya
+        petunjuk yang intinya saya harus me-bypass fitur login tepatnya pada
+        kolom <strong>password.</strong>
       </p>
       <div class="img-container">
-        <img src="img/02.png" alt="Step 2" />
-        <div class="caption">Web Login</div>
+        <img src="img/03.png" />
+        <div class="caption">SQL Syntax Error Leak</div>
       </div>
-      <div class="img-container">
-        <img src="img/03.png" alt="Step 3" />
-        <div class="caption">Error SQL</div>
-      </div>
-      
-      <p>
-        Lalu saya mencoba login kembali tapi saya menyisipkan sebuah payload <strong>SQLi</strong> pada kolom password.
-      </p>
 
       <p>
-        Payload yang digunakan:
+        Lalu saya mencoba login kembali tapi saya menyisipkan sebuah payload
+        <strong>SQLi</strong> pada kolom password.
       </p>
       <pre><code>" OR 1=1--</code></pre>
 
       <p>
-        Saya berhasil login tapi saya belum mendapatkan petunjuk mengenai flag-nya. Saya berpikir ada kemungkinan flag terletak pada source code tapi saya tidak menemukannya tapi ada satu kemungkinan bahwa flag-nya tidak terlihat di permukaan jadi saya menggunakan burp suite untuk melihat request dan response.
+        Saya berhasil login tapi saya belum mendapatkan petunjuk mengenai
+        flag-nya. Saya menggunakan <strong>Burp Suite</strong> untuk melihat
+        request dan response. Benar saja flag-nya terletak pada response HTTP
+        pada saat proses login.
       </p>
       <div class="img-container">
-        <img src="img/04.png" alt="Step 4" />
-        <div class="caption">Bypass Login</div>
-      </div>
-      <div class="img-container">
-        <img src="img/05.png" alt="Step 5" />
-        <div class="caption">Dashboard</div>
+        <img src="img/06.png" />
+        <div class="caption">Burp Suite Interception</div>
       </div>
 
-      <p>
-        Pada saat saya login kembali saya menangkap request menggunakan burp suite dan pada saat saya melihat response-nya benar saya flagnya terletak pada response pada saat login.
-      </p>
-      <div class="img-container">
-        <img src="img/06.png" alt="Step 6" />
-        <div class="caption">Bypass Login</div>
-      </div>
-      <div class="img-container">
-        <img src="img/07.png" alt="Step 7" />
-        <div class="caption">Dashboard</div>
-      </div>
-
-      <!-- FLAG -->
       <div class="flag-box">
         <span class="flag-label">CAPTURE THE FLAG:</span>
-        <span class="flag-text">picoCTF{G3tting_5QL_1nJ3c7I0N_l1k3_y0u_sh0ulD_c8ee9477}</span>
+        <span class="flag-text"
+          >picoCTF{G3tting_5QL_1nJ3c7I0N_l1k3_y0u_sh0ulD_c8ee9477}</span
+        >
       </div>
     </div>
   </body>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Category: WEB // Primandito</title>
+    <title>Web Exploitation // Primandito</title>
     <link
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
@@ -12,7 +12,7 @@
       :root {
         --bg: #0a0a0a;
         --accent: #ff5555;
-        --text: #aaa;
+        --text: #888;
       }
       * {
         margin: 0;
@@ -23,148 +23,118 @@
         font-family: "IBM Plex Mono", monospace;
         background: var(--bg);
         color: var(--text);
-        padding: 40px 20px;
+        padding: 60px 20px;
         line-height: 1.6;
       }
       .container {
-        max-width: 700px;
+        max-width: 750px;
         margin: 0 auto;
       }
+
       header {
-        border-bottom: 1px dashed #333;
-        padding-bottom: 20px;
-        margin-bottom: 40px;
+        margin-bottom: 50px;
       }
       h1 {
-        color: #fff;
-        font-size: 1.1rem;
+        color: #eee;
+        font-size: 1.2rem;
         font-weight: 500;
+        margin-bottom: 10px;
       }
 
-      .back-link {
+      /* INI KUNCI REPUTASI LU */
+      .notice {
+        font-size: 0.8rem;
+        color: #555;
+        border-left: 2px solid #222;
+        padding-left: 15px;
+        margin-bottom: 30px;
+      }
+
+      .list {
+        list-style: none;
+        border-top: 1px solid #111;
+      }
+      .list-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 15px 0;
+        border-bottom: 1px solid #111;
+      }
+
+      .entry-link {
+        color: #ccc;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: 0.2s;
+      }
+      .entry-link:hover {
+        color: var(--accent);
+      }
+
+      .entry-meta {
+        font-size: 0.75rem;
+        color: #444;
+        font-variant-numeric: tabular-nums;
+      }
+
+      footer {
+        margin-top: 80px;
+      }
+      .back {
         color: var(--accent);
         text-decoration: none;
         font-size: 0.8rem;
-        margin-bottom: 20px;
-        display: inline-block;
+        opacity: 0.6;
       }
-      .back-link:hover {
+      .back:hover {
+        opacity: 1;
         text-decoration: underline;
-      }
-
-      .mission-list {
-        list-style: none;
-        margin-top: 20px;
-      }
-      .mission-item {
-        margin-bottom: 15px;
-        padding: 15px;
-        border: 1px solid #1a1a1a;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        transition: 0.3s;
-      }
-      .mission-item:hover {
-        border-color: #333;
-        background: #111;
-      }
-      .mission-info {
-        display: flex;
-        flex-direction: column;
-      }
-      .mission-title {
-        color: #fff;
-        text-decoration: none;
-        font-size: 0.9rem;
-        margin-bottom: 5px;
-      }
-      .mission-title:hover {
-        color: var(--accent);
-      }
-      .mission-meta {
-        font-size: 0.7rem;
-        color: #555;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-
-      .status-solved {
-        color: #4ade80;
-        font-size: 0.7rem;
-        border: 1px solid #166534;
-        padding: 2px 6px;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <a href="../" class="back-link">../ (back to /ctf)</a>
       <header>
-        <!-- Ganti sesuai foldernya -->
-        <h1>PRIMANDITO@RESEARCH_LAB:~/CTF/WEB$ ls -F</h1>
+        <h1>Web Exploitation</h1>
+        <div class="notice">
+          Raw technical notes and personal scratchpads. <br />
+          Informal language, logic-focused.
+        </div>
       </header>
 
-      <ul class="mission-list">
-        <!-- ITEM MISI 1 -->
-        <li class="mission-item">
-          <div class="mission-info">
-            <a href="Inspect_HTML_picoCTF/index.html" class="mission-title"
-              >Inspect_HTML_picoCTF/</a
-            >
-            <span class="mission-meta">Date: 2026-03-25 | Points: -</span>
-          </div>
-          <span class="status-solved">Pwned</span>
-        </li>
+      <div class="list">
+        <div class="list-item">
+          <a href="Inspect_HTML_picoCTF/" class="entry-link"
+            >Inspect HTML (picoCTF)</a
+          >
+          <span class="entry-meta">2026-03-25</span>
+        </div>
+        <div class="list-item">
+          <a href="Irish_Name_Repo_1/" class="entry-link">Irish Name Repo 1</a>
+          <span class="entry-meta">2026-03-26</span>
+        </div>
+        <div class="list-item">
+          <a href="More_SQLI/" class="entry-link">More SQLi Challenge</a>
+          <span class="entry-meta">2026-03-26</span>
+        </div>
+        <div class="list-item">
+          <a href="Some_Assembly_Required_1/" class="entry-link"
+            >Some Assembly Required 1</a
+          >
+          <span class="entry-meta">2026-03-26</span>
+        </div>
+        <div class="list-item">
+          <a href="Java_Code_Analysis/" class="entry-link"
+            >Java Code Analysis</a
+          >
+          <span class="entry-meta">2026-03-27</span>
+        </div>
+      </div>
 
-        <!-- ITEM MISI 2 -->
-        <li class="mission-item">
-          <div class="mission-info">
-            <a href="Irish_Name_Repo_1/index.html" class="mission-title"
-              >Irish_Name_Repo_1/</a
-            >
-            <span class="mission-meta">Date: 2026-03-26 | Points: -</span>
-          </div>
-          <span class="status-solved">Pwned</span>
-        </li>
-
-
-        <!-- ITEM MISI 3 -->
-        <li class="mission-item">
-          <div class="mission-info">
-            <a href="More_SQLI/index.html" class="mission-title"
-              >More_SQLI/</a
-            >
-            <span class="mission-meta">Date: 2026-03-26 | Points: -</span>
-          </div>
-          <span class="status-solved">Pwned</span>
-        </li>
-
-
-        <!-- ITEM MISI 4 -->
-        <li class="mission-item">
-          <div class="mission-info">
-            <a href="Some_Assembly_Required_1/index.html" class="mission-title"
-              >Some_Assembly_Required_1/</a
-            >
-            <span class="mission-meta">Date: 2026-03-26 | Points: -</span>
-          </div>
-          <span class="status-solved">Pwned</span>
-        </li>
-
-
-        <!-- ITEM MISI 5 -->
-        <li class="mission-item">
-          <div class="mission-info">
-            <a href="Java_Code_Analysis/index.html" class="mission-title"
-              >Java_Code_Analysis!?!/</a
-            >
-            <span class="mission-meta">Date: 2026-03-27 | Points: -</span>
-          </div>
-          <span class="status-solved">Pwned</span>
-        </li>
-
-      </ul>
+      <footer>
+        <a href="../" class="back">← cd ..</a>
+      </footer>
     </div>
   </body>
 </html>

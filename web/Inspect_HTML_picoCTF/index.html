@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Log: Inspect_HTML_picoCTF // Primandito</title>
+    <title>Log: Inspect_HTML // Primandito</title>
     <link
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
@@ -12,7 +12,7 @@
       :root {
         --bg: #0a0a0a;
         --accent: #ff5555;
-        --text: #aaa;
+        --text: #888;
         --border: #1a1a1a;
       }
       * {
@@ -31,29 +31,27 @@
         max-width: 850px;
         margin: 0 auto;
       }
-
-      /* Navigation */
       .back {
-        color: #555;
+        color: #444;
         text-decoration: none;
         font-size: 0.8rem;
         margin-bottom: 20px;
         display: inline-block;
+        transition: 0.3s;
       }
       .back:hover {
         color: var(--accent);
       }
-
-      /* Header */
       .header {
-        border-bottom: 2px solid var(--accent);
+        border-bottom: 1px solid var(--border);
         padding-bottom: 20px;
         margin-bottom: 40px;
       }
       h1 {
         color: #fff;
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         text-transform: uppercase;
+        letter-spacing: 1px;
       }
       .meta {
         font-size: 0.75rem;
@@ -63,8 +61,6 @@
         gap: 20px;
         text-transform: uppercase;
       }
-
-      /* Typography */
       h2 {
         color: #fff;
         font-size: 0.9rem;
@@ -79,23 +75,11 @@
         font-size: 0.9rem;
       }
       strong {
-        color: #fff;
+        color: #eee;
+        font-weight: 500;
       }
-
-      /* Code Block */
-      pre {
-        background: #0d0d0d;
-        padding: 15px;
-        border: 1px solid var(--border);
-        overflow-x: auto;
-        font-size: 0.8rem;
-        color: #4ade80;
-        margin-bottom: 20px;
-      }
-
-      /* Image Styling (SELALU PAS) */
       .img-container {
-        margin: 25px 0;
+        margin: 30px 0;
         background: #000;
         border: 1px solid var(--border);
         display: flex;
@@ -104,7 +88,7 @@
         overflow: hidden;
       }
       .img-container img {
-        max-width: 100%; /* Biar gak luber */
+        max-width: 100%;
         height: auto;
         display: block;
         opacity: 0.8;
@@ -112,19 +96,18 @@
       .caption {
         width: 100%;
         font-size: 0.65rem;
-        color: #444;
+        color: #333;
         text-align: center;
         padding: 8px;
         background: #050505;
         border-top: 1px solid var(--border);
+        text-transform: uppercase;
       }
-
-      /* Flag Box */
       .flag-box {
-        background: rgba(255, 85, 85, 0.05);
-        border: 1px dashed var(--accent);
-        padding: 20px;
-        margin-top: 40px;
+        background: rgba(255, 85, 85, 0.02);
+        border: 1px dashed #333;
+        padding: 25px;
+        margin: 50px 0 20px;
         text-align: center;
       }
       .flag-label {
@@ -133,6 +116,7 @@
         font-weight: bold;
         display: block;
         margin-bottom: 10px;
+        letter-spacing: 2px;
       }
       .flag-text {
         color: #fff;
@@ -145,17 +129,14 @@
   <body>
     <div class="container">
       <a href="../" class="back">← cd ..</a>
-
       <div class="header">
         <h1>MISSION_LOG: Inspect_HTML_picoCTF</h1>
         <div class="meta">
-          <span>Platform: picoCTF</span>
-          <span>Category: Web</span>
-          <span>Points: -</span>
+          <span>Platform: picoCTF</span><span>Category: Web</span
+          ><span>Status: Pwned</span>
         </div>
       </div>
 
-      <!-- ANALISIS -->
       <h2>0x01: Analysis</h2>
       <p>
         Diberikan sebuah lab bernama <strong>Inspect HTML picoCTF</strong>,
@@ -164,30 +145,25 @@
         disediakan.
       </p>
       <div class="img-container">
-        <img src="img/01.png" alt="Step 1" />
-        <div class="caption">Lab</div>
+        <img src="img/01.png" />
+        <div class="caption">Challenge Discovery</div>
       </div>
 
-      <!-- PENYELESAIAN -->
       <h2>0x02: Exploitation</h2>
       <p>
         Pada saat saya mengunjungi web target saya langsung melihat source dari
-        web tersebut menggunakan <strong>ctrl+u</strong>
+        web tersebut menggunakan shortcut <strong>ctrl+u.</strong>
       </p>
       <div class="img-container">
-        <img src="img/02.png" alt="Step 2" />
-        <div class="caption">Web</div>
+        <img src="img/03.png" />
+        <div class="caption">Source Layer Inspection</div>
       </div>
-      <div class="img-container">
-        <img src="img/03.png" alt="Step 3" />
-        <div class="caption">Source code</div>
-      </div>
+
       <p>
         Benar saja pada saat saya melihat source code pada website target saya
-        mendapatkan flagnya
+        langsung mendapatkan flagnya di baris komentar.
       </p>
 
-      <!-- FLAG -->
       <div class="flag-box">
         <span class="flag-label">CAPTURE THE FLAG:</span>
         <span class="flag-text">picoCTF{1n5p3t0r_0f_h7ml_fd5d57bd}</span>
