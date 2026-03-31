@@ -1,98 +1,148 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Status: Pending // Primandito</title>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forensic // Primandito</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        :root { --bg: #0a0a0a; --accent: #ff5555; --text: #333; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'IBM Plex Mono', monospace; 
-            background: var(--bg); 
-            color: var(--text); 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            padding: 20px;
-        }
-        .container { max-width: 500px; width: 100%; }
-        
-        .status-box {
-            border: 1px solid #151515;
-            padding: 30px;
-            text-align: left;
-        }
+      :root {
+        --bg: #0a0a0a;
+        --accent: #ff5555;
+        --text: #888;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "IBM Plex Mono", monospace;
+        background: var(--bg);
+        color: var(--text);
+        padding: 60px 20px;
+        line-height: 1.6;
+      }
+      .container {
+        max-width: 750px;
+        margin: 0 auto;
+      }
 
-        .pulse {
-            width: 8px;
-            height: 8px;
-            background: var(--accent);
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 10px;
-            animation: pulse 2s infinite;
-        }
+      header {
+        margin-bottom: 50px;
+      }
+      h1 {
+        color: #eee;
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 10px;
+      }
 
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.3; }
-            100% { opacity: 1; }
-        }
+      /* INI KUNCI REPUTASI LU */
+      .notice {
+        font-size: 0.8rem;
+        color: #555;
+        border-left: 2px solid #222;
+        padding-left: 15px;
+        margin-bottom: 30px;
+      }
 
-        h1 { color: #eee; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; }
-        p { font-size: 0.8rem; line-height: 1.6; color: #666; margin-bottom: 20px; }
-        
-        .loading-bar {
-            width: 100%;
-            height: 1px;
-            background: #151515;
-            overflow: hidden;
-        }
-        .loading-progress {
-            width: 30%;
-            height: 100%;
-            background: #333;
-            animation: loading 2.5s infinite linear;
-        }
+      .list {
+        list-style: none;
+        border-top: 1px solid #111;
+      }
+      .list-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 15px 0;
+        border-bottom: 1px solid #111;
+      }
 
-        @keyframes loading {
-            from { transform: translateX(-100%); }
-            to { transform: translateX(400%); }
-        }
+      .entry-link {
+        color: #ccc;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: 0.2s;
+      }
+      .entry-link:hover {
+        color: var(--accent);
+      }
 
-        .back-link {
-            color: #444;
-            text-decoration: none;
-            font-size: 0.75rem;
-            margin-top: 25px;
-            display: inline-block;
-            transition: 0.3s;
-        }
-        .back-link:hover { color: var(--accent); }
+      .entry-meta {
+        font-size: 0.75rem;
+        color: #444;
+        font-variant-numeric: tabular-nums;
+      }
+
+      footer {
+        margin-top: 80px;
+      }
+      .back {
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 0.8rem;
+        opacity: 0.6;
+      }
+      .back:hover {
+        opacity: 1;
+        text-decoration: underline;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="status-box">
-            <h1><span class="pulse"></span> [ SECTION_VACANT ]</h1>
-            <p>
-                No validated records found in this partition. 
-                Write-ups for this category are currently pending system upload.
-            </p>
-            
-            <div class="loading-bar">
-                <div class="loading-progress"></div>
-            </div>
-            
-            <p style="font-size: 0.7rem; margin-top: 10px; margin-bottom: 0;">
-                STATUS: AWAITING_INPUT_LOGS...
-            </p>
+      <header>
+        <h1>Forensic</h1>
+        <div class="notice">
+          Raw technical notes and personal scratchpads. <br />
+          Informal language, logic-focused.
         </div>
-        
-        <a href="../" class="back-link">← Return to index</a>
+      </header>
+
+      <div class="list">
+        <div class="list-item">
+          <a href="Corrupted_file/" class="entry-link">Corrupted_file</a>
+          <span class="entry-meta">2026-03-31</span>
+        </div>
+      </div>
+
+      <div class="list">
+        <div class="list-item">
+          <a href="DISKO_1/" class="entry-link">DISKO_1</a>
+          <span class="entry-meta">2026-03-31</span>
+        </div>
+      </div>
+
+      <div class="list">
+        <div class="list-item">
+          <a href="Glory_of_the_Garden/" class="entry-link"
+            >Glory_of_the_Garden</a
+          >
+          <span class="entry-meta">2026-03-31</span>
+        </div>
+      </div>
+
+      <div class="list">
+        <div class="list-item">
+          <a href="shark_on_wire_1/" class="entry-link">shark_on_wire_1</a>
+          <span class="entry-meta">2026-03-31</span>
+        </div>
+      </div>
+
+      <div class="list">
+        <div class="list-item">
+          <a href="So_Meta/" class="entry-link">So_Meta</a>
+          <span class="entry-meta">2026-03-31</span>
+        </div>
+      </div>
+
+      <footer>
+        <a href="../" class="back">← cd ..</a>
+      </footer>
     </div>
-</body>
+  </body>
 </html>

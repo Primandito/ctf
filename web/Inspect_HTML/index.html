@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log: Inspect_HTML // Primandito</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0a0a0a;
+        --accent: #ff5555;
+        --text: #888;
+        --border: #1a1a1a;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "IBM Plex Mono", monospace;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        padding: 20px;
+      }
+      .container {
+        max-width: 850px;
+        margin: 0 auto;
+      }
+      .back {
+        color: #444;
+        text-decoration: none;
+        font-size: 0.8rem;
+        margin-bottom: 20px;
+        display: inline-block;
+        transition: 0.3s;
+      }
+      .back:hover {
+        color: var(--accent);
+      }
+      .header {
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 20px;
+        margin-bottom: 40px;
+      }
+      h1 {
+        color: #fff;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .meta {
+        font-size: 0.75rem;
+        color: #444;
+        margin-top: 10px;
+        display: flex;
+        gap: 20px;
+        text-transform: uppercase;
+      }
+      h2 {
+        color: #fff;
+        font-size: 0.9rem;
+        margin: 40px 0 20px;
+        border-left: 3px solid var(--accent);
+        padding-left: 15px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      p {
+        margin-bottom: 15px;
+        font-size: 0.9rem;
+      }
+      strong {
+        color: #eee;
+        font-weight: 500;
+      }
+      .img-container {
+        margin: 30px 0;
+        background: #000;
+        border: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+      }
+      .img-container img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        opacity: 0.8;
+      }
+      .caption {
+        width: 100%;
+        font-size: 0.65rem;
+        color: #333;
+        text-align: center;
+        padding: 8px;
+        background: #050505;
+        border-top: 1px solid var(--border);
+        text-transform: uppercase;
+      }
+      .flag-box {
+        background: rgba(255, 85, 85, 0.02);
+        border: 1px dashed #333;
+        padding: 25px;
+        margin: 50px 0 20px;
+        text-align: center;
+      }
+      .flag-label {
+        font-size: 0.7rem;
+        color: var(--accent);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 10px;
+        letter-spacing: 2px;
+      }
+      .flag-text {
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 500;
+        word-break: break-all;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a href="../" class="back">← cd ..</a>
+      <div class="header">
+        <h1>MISSION_LOG: Inspect_HTML</h1>
+        <div class="meta">
+          <span>Platform: picoCTF</span><span>Category: Web</span
+          ><span>Status: Pwned</span>
+        </div>
+      </div>
+
+      <h2>0x01: Analysis</h2>
+      <p>
+        Diberikan sebuah lab bernama <strong>Inspect HTML picoCTF</strong>,
+        berdasarkan hasil observasi awal cara untuk menyelesaikan lab ini adalah
+        dengan cara melihat source code pada website target yang sudah
+        disediakan.
+      </p>
+      <div class="img-container">
+        <img src="img/01.png" />
+        <div class="caption">Challenge Discovery</div>
+      </div>
+
+      <h2>0x02: Methodology</h2>
+      <p>
+        Pada saat saya mengunjungi web target saya langsung melihat source dari
+        web tersebut menggunakan shortcut <strong>ctrl+u.</strong>
+      </p>
+      <div class="img-container">
+        <img src="img/03.png" />
+        <div class="caption">Source Layer Inspection</div>
+      </div>
+
+      <p>
+        Benar saja pada saat saya melihat source code pada website target saya
+        langsung mendapatkan flagnya di baris komentar.
+      </p>
+
+      <div class="flag-box">
+        <span class="flag-label">CAPTURE THE FLAG:</span>
+        <span class="flag-text">picoCTF{1n5p3t0r_0f_h7ml_fd5d57bd}</span>
+      </div>
+    </div>
+  </body>
+</html>

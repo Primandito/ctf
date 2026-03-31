@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log: shark_on_wire_1 // Primandito</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0a0a0a;
+        --accent: #ff5555;
+        --text: #888;
+        --border: #1a1a1a;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "IBM Plex Mono", monospace;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        padding: 20px;
+      }
+      .container {
+        max-width: 850px;
+        margin: 0 auto;
+      }
+      .back {
+        color: #444;
+        text-decoration: none;
+        font-size: 0.8rem;
+        margin-bottom: 20px;
+        display: inline-block;
+        transition: 0.3s;
+      }
+      .back:hover {
+        color: var(--accent);
+      }
+      .header {
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 20px;
+        margin-bottom: 40px;
+      }
+      h1 {
+        color: #fff;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .meta {
+        font-size: 0.75rem;
+        color: #444;
+        margin-top: 10px;
+        display: flex;
+        gap: 20px;
+        text-transform: uppercase;
+      }
+      h2 {
+        color: #fff;
+        font-size: 0.9rem;
+        margin: 40px 0 20px;
+        border-left: 3px solid var(--accent);
+        padding-left: 15px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      p {
+        margin-bottom: 15px;
+        font-size: 0.9rem;
+      }
+      strong {
+        color: #eee;
+        font-weight: 500;
+      }
+      .img-container {
+        margin: 30px 0;
+        background: #000;
+        border: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+      }
+      .img-container img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        opacity: 0.8;
+      }
+      .caption {
+        width: 100%;
+        font-size: 0.65rem;
+        color: #333;
+        text-align: center;
+        padding: 8px;
+        background: #050505;
+        border-top: 1px solid var(--border);
+        text-transform: uppercase;
+      }
+      .flag-box {
+        background: rgba(255, 85, 85, 0.02);
+        border: 1px dashed #333;
+        padding: 25px;
+        margin: 50px 0 20px;
+        text-align: center;
+      }
+      .flag-label {
+        font-size: 0.7rem;
+        color: var(--accent);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 10px;
+        letter-spacing: 2px;
+      }
+      .flag-text {
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 500;
+        word-break: break-all;
+      }
+      pre {
+        background: #0d0d0d;
+        padding: 15px;
+        border: 1px solid var(--border);
+        overflow-x: auto;
+        font-size: 0.8rem;
+        color: #4ade80;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a href="../" class="back">← cd ..</a>
+      <div class="header">
+        <h1>MISSION_LOG: shark_on_wire_1</h1>
+        <div class="meta">
+          <span>Platform: picoCTF</span><span>Category: Forensic</span
+          ><span>Status: Pwned</span>
+        </div>
+      </div>
+
+      <h2>0x01: Analysis</h2>
+      <p>
+        Diberikan sebuah lab bernama <strong>shark_on_wire_1</strong>,
+        berdasarkan hasil observasi awal cara untuk menyelesaikan lab ini adalah
+        dengan cara menganalisis trafic pada file yang diberikan pada tantangan
+        ini, selain itu pada hints diberikan petunjuk untuk menggunakan tools
+        <strong>streams</strong> di <strong>wireshark.</strong>
+      </p>
+      <div class="img-container">
+        <img src="img/01.png" />
+        <div class="caption">Lab</div>
+      </div>
+
+      <h2>0x02: Methodology</h2>
+      <p>
+        Saya mendapatkan sebuah file bernama <strong>capture.pcap.</strong> Lalu
+        saya membuka file tersebut menggunakan wireshark.
+      </p>
+
+      <p>
+        Saya menggunakan menu
+        <a
+          href="https://www.wireshark.org/docs/wsug_html_chunked/ChUseAnalyzeMenuSection.html"
+          target="_blank"
+          >Analyze</a
+        >
+        untuk melihat udp stream.
+      </p>
+
+      <pre><code>Analyze -> Follow -> UDP Stream</code></pre>
+
+      <div class="img-container">
+        <img src="img/02.png" />
+        <div class="caption">Terminal</div>
+      </div>
+      <div class="img-container">
+        <img src="img/03.png" />
+        <div class="caption">Tools Wireshark</div>
+      </div>
+
+      <p>
+        Setelah masuk ke tampilan udp stream saya mencoba menganalisis bagian 0
+        dan untuk lanjut ke bagian selanjutnya ikuti tanda panah pada gambar.
+      </p>
+
+      <div class="img-container">
+        <img src="img/04.png" />
+        <div class="caption">UDP Stream</div>
+      </div>
+
+      <p>Pada bagian ke 6 saya menemukan flag-nya.</p>
+
+      <div class="img-container">
+        <img src="img/05.png" />
+        <div class="caption">Flag</div>
+      </div>
+
+      <div class="flag-box">
+        <span class="flag-label">CAPTURE THE FLAG:</span>
+        <span class="flag-text">picoCTF{StaT31355_636f6e6e}</span>
+      </div>
+    </div>
+  </body>
+</html>

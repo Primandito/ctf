@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Log: Inspect_HTML // Primandito</title>
+    <title>Log: Glory_of_the_Garden // Primandito</title>
     <link
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
@@ -124,49 +124,72 @@
         font-weight: 500;
         word-break: break-all;
       }
+      pre {
+        background: #0d0d0d;
+        padding: 15px;
+        border: 1px solid var(--border);
+        overflow-x: auto;
+        font-size: 0.8rem;
+        color: #4ade80;
+        margin-bottom: 20px;
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <a href="../" class="back">← cd ..</a>
       <div class="header">
-        <h1>MISSION_LOG: Inspect_HTML_picoCTF</h1>
+        <h1>MISSION_LOG: Glory_of_the_Garden</h1>
         <div class="meta">
-          <span>Platform: picoCTF</span><span>Category: Web</span
+          <span>Platform: picoCTF</span><span>Category: Forensic</span
           ><span>Status: Pwned</span>
         </div>
       </div>
 
       <h2>0x01: Analysis</h2>
       <p>
-        Diberikan sebuah lab bernama <strong>Inspect HTML picoCTF</strong>,
-        berdasarkan hasil observasi awal cara untuk menyelesaikan lab ini adalah
-        dengan cara melihat source code pada website target yang sudah
-        disediakan.
+        Diberikan sebuah lab bernama <strong>Glory_of_the_Garden</strong>,
+        berdasarkan hasil observasi awal cara untuk menyelesaikan lab ini belum
+        diketahui secara pasti tapi kemungkinan lab ini dapat diselesaikan
+        dengan mudah mengingat level yang terdapat pada lab ini adalah
+        <strong>easy.</strong>
       </p>
       <div class="img-container">
         <img src="img/01.png" />
-        <div class="caption">Challenge Discovery</div>
+        <div class="caption">Lab</div>
       </div>
 
       <h2>0x02: Methodology</h2>
       <p>
-        Pada saat saya mengunjungi web target saya langsung melihat source dari
-        web tersebut menggunakan shortcut <strong>ctrl+u.</strong>
+        Saya mendapatkan sebuah file bernama <strong>garden.jpg.</strong> Lalu
+        pada saat saya membuka file gambar tersebut hanya berisi gambar biasa.
       </p>
+
+      <div class="img-container">
+        <img src="img/02.png" />
+        <div class="caption">Terminal</div>
+      </div>
       <div class="img-container">
         <img src="img/03.png" />
-        <div class="caption">Source Layer Inspection</div>
+        <div class="caption">Gambar</div>
       </div>
 
       <p>
-        Benar saja pada saat saya melihat source code pada website target saya
-        langsung mendapatkan flagnya di baris komentar.
+        Tiba tiba saya terpikirkan untuk mencoba command string dan grep seperti
+        pada challenge sebelumnya benar saja setelah saya mencoba hal tersebut
+        saya mendapatkan flag-nya.
       </p>
+
+      <pre><code>strings garden.jpg | grep picoCTF</code></pre>
+
+      <div class="img-container">
+        <img src="img/04.png" />
+        <div class="caption">Flag</div>
+      </div>
 
       <div class="flag-box">
         <span class="flag-label">CAPTURE THE FLAG:</span>
-        <span class="flag-text">picoCTF{1n5p3t0r_0f_h7ml_fd5d57bd}</span>
+        <span class="flag-text">picoCTF{more_than_m33ts_the_3y37fde8891}</span>
       </div>
     </div>
   </body>

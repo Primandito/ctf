@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log: Corrupted_file // Primandito</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0a0a0a;
+        --accent: #ff5555;
+        --text: #888;
+        --border: #1a1a1a;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "IBM Plex Mono", monospace;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        padding: 20px;
+      }
+      .container {
+        max-width: 850px;
+        margin: 0 auto;
+      }
+      .back {
+        color: #444;
+        text-decoration: none;
+        font-size: 0.8rem;
+        margin-bottom: 20px;
+        display: inline-block;
+        transition: 0.3s;
+      }
+      .back:hover {
+        color: var(--accent);
+      }
+      .header {
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 20px;
+        margin-bottom: 40px;
+      }
+      h1 {
+        color: #fff;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .meta {
+        font-size: 0.75rem;
+        color: #444;
+        margin-top: 10px;
+        display: flex;
+        gap: 20px;
+        text-transform: uppercase;
+      }
+      h2 {
+        color: #fff;
+        font-size: 0.9rem;
+        margin: 40px 0 20px;
+        border-left: 3px solid var(--accent);
+        padding-left: 15px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      p {
+        margin-bottom: 15px;
+        font-size: 0.9rem;
+      }
+      strong {
+        color: #eee;
+        font-weight: 500;
+      }
+      .img-container {
+        margin: 30px 0;
+        background: #000;
+        border: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+      }
+      .img-container img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        opacity: 0.8;
+      }
+      .caption {
+        width: 100%;
+        font-size: 0.65rem;
+        color: #333;
+        text-align: center;
+        padding: 8px;
+        background: #050505;
+        border-top: 1px solid var(--border);
+        text-transform: uppercase;
+      }
+      .flag-box {
+        background: rgba(255, 85, 85, 0.02);
+        border: 1px dashed #333;
+        padding: 25px;
+        margin: 50px 0 20px;
+        text-align: center;
+      }
+      .flag-label {
+        font-size: 0.7rem;
+        color: var(--accent);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 10px;
+        letter-spacing: 2px;
+      }
+      .flag-text {
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 500;
+        word-break: break-all;
+      }
+      pre {
+        background: #0d0d0d;
+        padding: 15px;
+        border: 1px solid var(--border);
+        overflow-x: auto;
+        font-size: 0.8rem;
+        color: #4ade80;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a href="../" class="back">← cd ..</a>
+      <div class="header">
+        <h1>MISSION_LOG: Corrupted_file</h1>
+        <div class="meta">
+          <span>Platform: picoCTF</span><span>Category: Forensic</span
+          ><span>Status: Pwned</span>
+        </div>
+      </div>
+
+      <h2>0x01: Analysis</h2>
+      <p>
+        Diberikan sebuah lab bernama <strong>Corrupted_file</strong>,
+        berdasarkan hasil observasi awal cara untuk menyelesaikan lab ini adalah
+        dengan cara memperbaiki byte pada file yang sudah diberikan pada
+        tantangan ini.
+      </p>
+      <div class="img-container">
+        <img src="img/01.png" />
+        <div class="caption">Lab</div>
+      </div>
+
+      <h2>0x02: Methodology</h2>
+      <p>
+        Saya mendapatkan sebuah file bernama <strong>file</strong> bertipe data.
+        Setelah saya melakukan command:
+      </p>
+
+      <pre><code>strings file</code></pre>
+
+      <p>
+        Saya mendapatkan sebuah petunjuk pada header file yaitu pada kata
+        <strong>JFIF.</strong>
+      </p>
+
+      <div class="img-container">
+        <img src="img/02.png" />
+        <div class="caption">Terminal</div>
+      </div>
+
+      <p>
+        Setelah saya mencari tahu di
+        <a
+          href="https://medium.com/@rifqihz/digital-forensic-rahasia-dibalik-sebuah-gambar-f7d1a3a86f15"
+          target="_blank"
+          >internet</a
+        >
+        saya mendapatkan sebuah penjelasan bahwa file tersebut adalah
+        <strong>JPEG.</strong> Saya juga mendapatkan sebuah header file yang
+        benar pada file JPEG.
+      </p>
+
+      <div class="img-container">
+        <img src="img/03.png" />
+        <div class="caption">Penjelasan JFIF</div>
+      </div>
+
+      <p>
+        Pada saat saya menggunakan tools <strong>hexeditor</strong> dan
+        menganalisis header pada file bernama <strong>file</strong> saya melihat
+        bahwa beberapa header tidak sesuai dengan format file JPEG. Saya
+        menyesuaikan beberapa header dan pada saat saya membuka file tersebut
+        saya mendapatkan sebuah gambar yang terdapat flag-nya.
+      </p>
+
+      <p>Command:</p>
+      <pre><code>hexeditor file</code></pre>
+
+      <div class="img-container">
+        <img src="img/04.png" />
+        <div class="caption">Header file rusak</div>
+      </div>
+      <div class="img-container">
+        <img src="img/05.png" />
+        <div class="caption">Header file sudah diperbaiki</div>
+      </div>
+      <div class="img-container">
+        <img src="img/06.png" />
+        <div class="caption">Flag</div>
+      </div>
+
+      <div class="flag-box">
+        <span class="flag-label">CAPTURE THE FLAG:</span>
+        <span class="flag-text">picoCTF{r3st0r1ng_th3_by73s_939a65f5}</span>
+      </div>
+    </div>
+  </body>
+</html>
